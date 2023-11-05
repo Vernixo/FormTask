@@ -6,6 +6,15 @@ namespace Formularz.Controllers
 {
     public class DaneController : Controller
     {
+        [HttpPost]
+        public IActionResult HandleForm(Dane model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("Form", model);
+            }
+            return Content("Dane zostały przetworzone pomyślnie!");
+        }
         public IActionResult Index()
         {
             return View();
